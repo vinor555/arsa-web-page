@@ -19,6 +19,24 @@ pero la estructura ya contempla más páginas, autenticación y un panel adminis
 Los colores, tipografías y sombras viven como *design tokens* en
 `src/styles/index.css`. Cambiar la marca es cambiar ese archivo.
 
+## Marca
+
+El logo original venía en JPEG sobre fondo negro. De ahí se extrajeron dos
+piezas con transparencia, que son las que usa el componente `Logo`:
+
+- `src/assets/logo-marca.png` — el isotipo, la A con el trazo.
+- `src/assets/logo-arsa.png` — la palabra ARSA.
+- `public/favicon.png` y `public/apple-touch-icon.png` — el isotipo sobre el
+  azul institucional.
+
+El logo es plateado, así que pide fondo oscuro. Por eso el encabezado se oscurece
+al desplazarse en lugar de volverse blanco, y el menú móvil es oscuro. Si alguna
+vez hace falta ponerlo sobre fondo claro, `Logo` acepta `onDark={false}` y le
+aplica un filtro que lo oscurece para que no se pierda.
+
+Los colores, tipografías y sombras siguen siendo los del sitio, no los del logo:
+el naranja de seguridad se mantiene como color de acento.
+
 ## Arranque
 
 ```bash

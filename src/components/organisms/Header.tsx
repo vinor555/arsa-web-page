@@ -35,13 +35,13 @@ export function Header() {
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition duration-300',
         isSolid
-          ? 'border-b border-steel-200 bg-white/95 backdrop-blur-md'
+          ? 'border-b border-white/10 bg-petrol-950/95 backdrop-blur-md'
           : 'border-b border-transparent bg-transparent',
       )}
     >
       <Container className="flex h-20 items-center justify-between gap-6">
         <a href="#inicio" aria-label="ARSA, ir al inicio" className="shrink-0">
-          <Logo onDark={!isSolid} withTagline />
+          <Logo onDark withTagline />
         </a>
 
         <nav aria-label="Principal" className="hidden items-center gap-8 lg:flex">
@@ -49,10 +49,7 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className={cn(
-                'relative text-sm font-medium transition after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-ember-500 after:transition-all hover:after:w-full',
-                isSolid ? 'text-steel-700 hover:text-petrol-950' : 'text-white/90 hover:text-white',
-              )}
+              className="relative text-sm font-medium text-white/85 transition after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-ember-500 after:transition-all hover:text-white hover:after:w-full"
             >
               {item.label}
             </a>
@@ -64,7 +61,7 @@ export function Header() {
             <MessageCircle className="h-4 w-4" aria-hidden />
             WhatsApp
           </Button>
-          <Button href="#contacto" variant={isSolid ? 'secondary' : 'ghost'} size="sm">
+          <Button href="#contacto" variant="ghost" size="sm">
             Cotizar
           </Button>
         </div>
@@ -75,24 +72,21 @@ export function Header() {
           aria-expanded={isMenuOpen}
           aria-controls="menu-movil"
           aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
-          className={cn(
-            'flex h-11 w-11 items-center justify-center rounded-md border transition lg:hidden',
-            isSolid ? 'border-steel-200 text-petrol-950' : 'border-white/30 text-white',
-          )}
+          className="flex h-11 w-11 items-center justify-center rounded-md border border-white/30 text-white transition lg:hidden"
         >
           {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </Container>
 
       {isMenuOpen && (
-        <div id="menu-movil" className="border-t border-steel-200 bg-white lg:hidden">
+        <div id="menu-movil" className="border-t border-white/10 bg-petrol-950 lg:hidden">
           <Container className="flex flex-col gap-1 py-4">
             {mainNav.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="rounded-md px-2 py-3 text-base font-medium text-steel-700 transition hover:bg-steel-50 hover:text-petrol-950"
+                className="rounded-md px-2 py-3 text-base font-medium text-petrol-200 transition hover:bg-white/5 hover:text-white"
               >
                 {item.label}
               </a>
@@ -102,7 +96,7 @@ export function Header() {
                 <MessageCircle className="h-4 w-4" aria-hidden />
                 Escribir por WhatsApp
               </Button>
-              <Button href="#contacto" variant="secondary" onClick={() => setIsMenuOpen(false)}>
+              <Button href="#contacto" variant="ghost" onClick={() => setIsMenuOpen(false)}>
                 Solicitar cotización
               </Button>
             </div>

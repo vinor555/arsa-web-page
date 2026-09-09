@@ -11,7 +11,7 @@ export function Footer() {
     <footer className="border-t border-white/10 bg-petrol-950 text-petrol-300">
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="flex flex-col gap-4 sm:col-span-2 lg:col-span-1">
-          <Logo onDark withTagline />
+          <Logo onDark withTagline size="md" />
           <p className="max-w-sm text-sm leading-relaxed">{site.description}</p>
         </div>
 
@@ -63,7 +63,7 @@ export function Footer() {
       </Container>
 
       <div className="border-t border-white/10">
-        <Container className="flex flex-col gap-2 py-6 text-xs sm:flex-row sm:items-center sm:justify-between">
+        <Container className="flex flex-col gap-2 py-6 pb-24 text-xs sm:flex-row sm:items-center sm:justify-between sm:pb-6">
           <p>
             © {year} {site.legalName}. Todos los derechos reservados.
           </p>
