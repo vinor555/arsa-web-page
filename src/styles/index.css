@@ -1,0 +1,121 @@
+@import 'tailwindcss';
+
+/* ---------------------------------------------------------------------------
+   Design tokens de ARSA.
+   Todo el sitio se pinta con estas variables: cambiar aqui cambia la marca
+   completa (landing, y mas adelante panel administrativo).
+--------------------------------------------------------------------------- */
+@theme {
+  /* Azul petroleo: color institucional, fondos y superficies oscuras */
+  --color-petrol-50: #eef6fb;
+  --color-petrol-100: #d6e8f4;
+  --color-petrol-200: #aecfe6;
+  --color-petrol-300: #7aacd2;
+  --color-petrol-400: #4483b4;
+  --color-petrol-500: #256394;
+  --color-petrol-600: #1a4d78;
+  --color-petrol-700: #143c5f;
+  --color-petrol-800: #0f2c46;
+  --color-petrol-900: #0a1e31;
+  --color-petrol-950: #061321;
+
+  /* Naranja seguridad: acento, llamadas a la accion y estados activos */
+  --color-ember-50: #fff5ed;
+  --color-ember-100: #ffe7d3;
+  --color-ember-200: #ffcaa5;
+  --color-ember-300: #ffa66d;
+  --color-ember-400: #ff7f36;
+  --color-ember-500: #f96010;
+  --color-ember-600: #e04a06;
+  --color-ember-700: #b93708;
+  --color-ember-800: #932e0f;
+  --color-ember-900: #772910;
+
+  /* Grises acero para texto y bordes sobre fondo claro */
+  --color-steel-50: #f6f7f9;
+  --color-steel-100: #eceef2;
+  --color-steel-200: #d5dae1;
+  --color-steel-300: #b1bac7;
+  --color-steel-400: #8694a6;
+  --color-steel-500: #67768b;
+  --color-steel-600: #525f72;
+  --color-steel-700: #434d5d;
+  --color-steel-800: #3a424e;
+  --color-steel-900: #343a44;
+
+  --font-display: 'Barlow Condensed', 'Barlow', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --shadow-card: 0 1px 2px rgb(6 19 33 / 0.06), 0 12px 32px -12px rgb(6 19 33 / 0.18);
+  --shadow-lift: 0 2px 4px rgb(6 19 33 / 0.08), 0 24px 48px -16px rgb(6 19 33 / 0.28);
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(1.25rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* El header fijo no debe tapar la seccion a la que se navega */
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white font-sans text-steel-700 antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-semibold tracking-tight text-petrol-950;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ember-500;
+  }
+
+  ::selection {
+    @apply bg-ember-500 text-white;
+  }
+}
+
+@layer utilities {
+  /* Reticula tenue tipo plano tecnico para las bandas oscuras */
+  .bg-blueprint {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

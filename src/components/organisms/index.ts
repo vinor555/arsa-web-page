@@ -1,0 +1,9 @@
+export { About } from './About';
+export { Contact } from './Contact';
+export { CtaBanner } from './CtaBanner';
+export { Footer } from './Footer';
+export { Header } from './Header';
+export { Hero } from './Hero';
+export { Process } from './Process';
+export { Sectors } from './Sectors';
+export { Services } from './Services';
