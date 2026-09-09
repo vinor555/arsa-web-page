@@ -38,9 +38,9 @@ jobs:
       - name: Construir el sitio
         run: npm run build
         env:
-          # Prefijo del repositorio, p. ej. /arsa-web-page/.
-          # Con dominio propio, cambiar por: VITE_BASE: /
-          VITE_BASE: /${{ github.event.repository.name }}/
+          # El sitio vive en la raiz de arsagroup.com.gt (ver public/CNAME).
+          # Sin dominio propio seria: /${{ github.event.repository.name }}/
+          VITE_BASE: /
 
       - uses: actions/configure-pages@v5
 

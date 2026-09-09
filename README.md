@@ -83,23 +83,40 @@ Configuración necesaria, una sola vez, en el repositorio:
 
 El sitio queda en `https://<usuario>.github.io/<repositorio>/`.
 
-### Prefijo de rutas
-
-GitHub Pages sirve el sitio dentro de una subcarpeta, así que el build necesita
-ese prefijo. El workflow lo pasa en la variable `VITE_BASE` tomándolo del nombre
-del repositorio. Vite aplica el prefijo en `build` y en `preview`; el servidor de
-desarrollo se queda en la raíz.
-
-Como GitHub Pages no reescribe rutas profundas hacia `index.html`, el build
-publica una copia como `404.html` para que el router del cliente pueda resolver
-las URLs cuando existan más páginas.
-
 ### Dominio propio
 
-Al apuntar un dominio a Pages, el sitio pasa a vivir en la raíz. Dos cambios:
+El sitio se sirve en `https://arsagroup.com.gt/`. Dos piezas lo sostienen:
 
-1. En `deploy.yml`, fijar `VITE_BASE: /`.
-2. Agregar `public/CNAME` con el dominio, y configurarlo en Settings → Pages.
+- `public/CNAME` contiene el dominio y GitHub Pages lo lee en cada despliegue.
+- El workflow fija `VITE_BASE: /`, porque con dominio propio el sitio vive en la
+  raíz y no dentro de una subcarpeta.
+
+Si alguna vez se vuelve a publicar sin dominio propio, hay que borrar
+`public/CNAME` y devolver `VITE_BASE` a `/${{ github.event.repository.name }}/`.
+
+### DNS del dominio
+
+En el Zone Editor de cPanel (nameservers de GuateCloud):
+
+| Nombre | Tipo | Valor |
+| --- | --- | --- |
+| `arsagroup.com.gt.` | A | `185.199.108.153` |
+| `arsagroup.com.gt.` | A | `185.199.109.153` |
+| `arsagroup.com.gt.` | A | `185.199.110.153` |
+| `arsagroup.com.gt.` | A | `185.199.111.153` |
+| `www.arsagroup.com.gt.` | CNAME | `vinor555.github.io` |
+
+**El correo depende del registro A del dominio raíz.** El MX apunta a
+`arsagroup.com.gt`, así que antes de mover ese registro A hay que redirigir el
+MX a `mail.arsagroup.com.gt` y dejar ese nombre como registro A hacia
+`69.72.244.14`, que es el servidor de correo del hosting anterior. Si se cambia
+el A sin hacer eso primero, el correo del dominio deja de llegar.
+
+### Rutas profundas
+
+GitHub Pages no reescribe rutas hacia `index.html`, así que el build publica una
+copia como `404.html` para que el router del cliente resuelva las URLs cuando
+existan más páginas.
 
 ## Siguientes pasos previstos
 
