@@ -53,7 +53,7 @@ través de su `index.ts`, y todo se importa con el alias `@/`.
 Nada de texto vive dentro de los componentes de página. Todo sale de `src/data/`:
 
 - `site.ts` — nombre, descripción, correo, teléfono y los mensajes de WhatsApp.
-- `services.ts` — el catálogo de 32 servicios y sus 6 categorías.
+- `services.ts` — el catálogo de 33 servicios y sus 6 categorías.
 - `company.ts` — cifras, diferenciadores, sectores, pasos del proceso y normas.
 - `navigation.ts` — enlaces del menú.
 

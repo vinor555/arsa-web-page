@@ -247,6 +247,13 @@ export const services: Service[] = [
     description: 'Inspección, limpieza y ajuste de calderas y sus sistemas auxiliares.',
   },
   {
+    id: 'tanque-agua-caliente',
+    category: 'montaje',
+    title: 'Mantenimiento de tanque de agua caliente',
+    description:
+      'Servicio a tanques de agua caliente con intercambiador de calor a base de vapor.',
+  },
+  {
     id: 'serpentin',
     category: 'montaje',
     title: 'Fabricación y pruebas de serpentín',
@@ -305,8 +312,9 @@ export const services: Service[] = [
   {
     id: 'pastas-etanol',
     category: 'productos',
-    title: 'Venta de pastas detectoras para etanol',
-    description: 'Pastas modificadas color cut, M-3, para medición en combustibles con etanol.',
+    title: 'Venta de pasta Kolor Kut Modified',
+    description:
+      'Kolor Kut Modified Water Finding Paste, para detección de agua en combustibles reformulados y oxigenados como el etanol.',
   },
 ];
 

@@ -47,7 +47,7 @@ export function Hero() {
               Cotizar por WhatsApp
             </Button>
             <Button href="#servicios" variant="ghost" size="lg">
-              Ver los 32 servicios
+              Ver los 33 servicios
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Button>
           </div>

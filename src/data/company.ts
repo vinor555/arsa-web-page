@@ -38,7 +38,7 @@ export interface ProcessStep {
 
 /** Cifras de la banda de confianza bajo el hero. */
 export const stats: Stat[] = [
-  { value: '32', label: 'Servicios especializados' },
+  { value: '33', label: 'Servicios especializados' },
   { value: 'API + NFPA', label: 'Métodos y normas aplicadas' },
   { value: 'MEM', label: 'Trámites y licencias gestionados' },
   { value: '100%', label: 'Trabajos con protocolo de seguridad' },
@@ -86,12 +86,14 @@ export const sectors: Sector[] = [
   },
   {
     name: 'Operaciones de GLP',
-    description: 'Puntos de venta al público y depósitos de propano y butano.',
+    description:
+      'Puntos de venta al público, consumos propios y depósitos de propano y butano.',
     icon: Flame,
   },
   {
     name: 'Industria y generación',
-    description: 'Calderas, plantas eléctricas, vapor y búnker.',
+    description:
+      'Calderas, plantas eléctricas, tanques de agua caliente, vapor y búnker.',
     icon: Wrench,
   },
   {

@@ -29,7 +29,7 @@ export function Services() {
       <Container className="flex flex-col gap-10">
         <SectionHeading
           eyebrow="Servicios"
-          title="32 servicios especializados, de la calibración al trámite"
+          title="33 servicios especializados, de la calibración al trámite"
           description="Filtre por categoría para encontrar lo que necesita. Cada tarjeta abre una conversación de WhatsApp con el servicio ya indicado."
         />
 
