@@ -10,8 +10,10 @@ export const site = {
   contact: {
     email: 'kathleen.ar97@outlook.es',
     phone: '+502 4265 0291',
-    /** Formato E.164 sin signos, requerido por los enlaces wa.me */
     phoneE164: '50242650291',
+    whatsapp: '+502 4540 6553',
+    /** Formato E.164 sin signos, requerido por los enlaces wa.me */
+    whatsappE164: '50245406553',
   },
 } as const;
 
@@ -21,11 +23,13 @@ export const whatsappMessages = {
   quote: 'Hola ARSA, quisiera solicitar una cotización.',
   service: (serviceTitle: string) =>
     `Hola ARSA, me interesa el servicio de "${serviceTitle}". Me gustaría recibir más información.`,
+  product: (productTitle: string) =>
+    `Hola ARSA, me interesa el producto "${productTitle}". Me gustaría recibir más información.`,
 } as const;
 
 /** Construye el enlace de WhatsApp con el mensaje ya codificado. */
 export function whatsappUrl(message: string = whatsappMessages.general) {
-  return `https://wa.me/${site.contact.phoneE164}?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/${site.contact.whatsappE164}?text=${encodeURIComponent(message)}`;
 }
 
 export const telUrl = `tel:+${site.contact.phoneE164}`;

@@ -12,6 +12,7 @@ import {
   Wrench,
   type LucideIcon,
 } from 'lucide-react';
+import { services } from './services';
 
 export interface Stat {
   value: string;
@@ -38,7 +39,7 @@ export interface ProcessStep {
 
 /** Cifras de la banda de confianza bajo el hero. */
 export const stats: Stat[] = [
-  { value: '33', label: 'Servicios especializados' },
+  { value: String(services.length), label: 'Servicios especializados' },
   { value: 'API + NFPA', label: 'Métodos y normas aplicadas' },
   { value: 'MEM', label: 'Trámites y licencias gestionados' },
   { value: '100%', label: 'Trabajos con protocolo de seguridad' },
@@ -93,7 +94,7 @@ export const sectors: Sector[] = [
   {
     name: 'Industria y generación',
     description:
-      'Calderas, plantas eléctricas, tanques de agua caliente, vapor y búnker.',
+      'Calderas, plantas eléctricas y de asfalto, tanques de agua caliente, vapor y búnker.',
     icon: Wrench,
   },
   {

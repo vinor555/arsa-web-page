@@ -20,7 +20,7 @@ export function Contact() {
             <ContactItem
               icon={MessageCircle}
               label="WhatsApp"
-              value={site.contact.phone}
+              value={site.contact.whatsapp}
               href={whatsappUrl()}
               external
             />

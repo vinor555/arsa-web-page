@@ -5,11 +5,11 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
 /**
- * En GitHub Pages el sitio vive en https://<usuario>.github.io/<repo>/, por lo
- * que el build necesita ese prefijo. Con dominio propio basta con exportar
- * VITE_BASE=/ en el workflow.
+ * El sitio se publica en la raíz de arsagroup.com.gt (ver public/CNAME).
+ * Sin dominio propio viviría en https://<usuario>.github.io/<repo>/ y habría
+ * que exportar VITE_BASE=/<repo>/ al construir.
  */
-const base = process.env.VITE_BASE ?? '/arsa-web-page/';
+const base = process.env.VITE_BASE ?? '/';
 
 /**
  * GitHub Pages no reescribe rutas hacia index.html, así que una URL profunda

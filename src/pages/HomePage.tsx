@@ -1,4 +1,14 @@
-import { About, Contact, CtaBanner, Hero, Process, Sectors, Services } from '@/components/organisms';
+import {
+  About,
+  Contact,
+  CtaBanner,
+  Hero,
+  Process,
+  Products,
+  Projects,
+  Sectors,
+  Services,
+} from '@/components/organisms';
 import { MainLayout } from '@/components/templates';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { site } from '@/data/site';
@@ -11,6 +21,8 @@ export default function HomePage() {
       <Hero />
       <About />
       <Services />
+      <Products />
+      <Projects />
       <CtaBanner />
       <Sectors />
       <Process />

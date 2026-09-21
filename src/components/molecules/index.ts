@@ -1,8 +1,11 @@
 export { CategoryFilter, type CategoryFilterValue } from './CategoryFilter';
+export { ContactForm } from './ContactForm';
 export { ContactItem } from './ContactItem';
 export { HighlightCard } from './HighlightCard';
+export { Lightbox, type LightboxItem } from './Lightbox';
+export { ProductCard } from './ProductCard';
+export { ProjectTile } from './ProjectTile';
 export { SectionHeading } from './SectionHeading';
 export { ServiceCard } from './ServiceCard';
 export { StatItem } from './StatItem';
 export { WhatsAppFab } from './WhatsAppFab';
-export { ContactForm } from './ContactForm';
