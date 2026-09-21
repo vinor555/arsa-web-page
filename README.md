@@ -48,7 +48,7 @@ npm run dev
 | --- | --- |
 | `npm run dev` | Servidor de desarrollo en http://localhost:5173 |
 | `npm run build` | Build de producción en `dist/` |
-| `npm run preview` | Sirve el build con el mismo prefijo que GitHub Pages |
+| `npm run preview` | Sirve el build tal como queda publicado |
 | `npm run lint` | ESLint sobre todo el proyecto |
 | `npm run typecheck` | Verificación de tipos sin emitir |
 
@@ -57,8 +57,10 @@ npm run dev
 ```
 src/components/
 ├── atoms/       Button, Container, Section, Badge, Logo, campos de formulario
-├── molecules/   ServiceCard, CategoryFilter, ContactForm, SectionHeading, WhatsAppFab
-├── organisms/   Header, Hero, About, Services, Sectors, Process, Contact, Footer
+├── molecules/   ServiceCard, ProductCard, ProjectTile, Lightbox, CategoryFilter,
+│                ContactForm, SectionHeading, WhatsAppFab
+├── organisms/   Header, Hero, About, Services, Products, Projects, Sectors,
+│                Process, Contact, Footer
 └── templates/   MainLayout (encabezado + contenido + pie + botón flotante)
 src/pages/       HomePage, NotFoundPage
 ```
@@ -70,20 +72,42 @@ través de su `index.ts`, y todo se importa con el alias `@/`.
 
 Nada de texto vive dentro de los componentes de página. Todo sale de `src/data/`:
 
-- `site.ts` — nombre, descripción, correo, teléfono y los mensajes de WhatsApp.
-- `services.ts` — el catálogo de 33 servicios y sus 6 categorías.
+- `site.ts` — nombre, descripción, correo, teléfono, WhatsApp y sus mensajes.
+- `services.ts` — el catálogo de servicios y sus categorías.
+- `products.ts` — los productos a la venta, con su foto.
+- `projects.ts` — las fotos de la galería de proyectos y sus títulos.
 - `company.ts` — cifras, diferenciadores, sectores, pasos del proceso y normas.
 - `navigation.ts` — enlaces del menú.
 
-Para agregar un servicio basta con añadir un objeto a `services`; los contadores
-de los filtros y el selector del formulario se actualizan solos.
+Para agregar un servicio basta con añadir un objeto a `services`. El conteo de la
+portada y del título, los filtros y el selector del formulario se actualizan
+solos. Lo mismo vale para `products`.
+
+## Fotos
+
+Las fotos originales son de trabajos reales de ARSA. Para la web se convirtieron
+a WebP, se redujeron de tamaño y se les quitaron los metadatos, incluida
+cualquier ubicación GPS.
+
+| Carpeta | Uso |
+| --- | --- |
+| `src/assets/proyectos/` | Galería. Cada foto va en dos versiones: `<slug>-mini.webp`, recortada a 4:3 y de 800 px, y `<slug>.webp`, completa y de hasta 1600 px, que se ve al ampliarla. |
+| `src/assets/nosotros/` | Las dos fotos del mosaico de la sección Nosotros. |
+| `src/assets/productos/` | Fotos de producto sobre fondo blanco. |
+
+Para sumar una foto a la galería se guardan sus dos versiones en
+`src/assets/proyectos/` y se agrega una entrada en `src/data/projects.ts` con el
+mismo slug. Si falta alguna de las dos, el build falla con un mensaje que dice
+cuál.
 
 ## WhatsApp
 
-El teléfono se define una sola vez en `site.contact.phoneE164`. La función
-`whatsappUrl(mensaje)` arma el enlace `wa.me` con el texto ya codificado. Se usa
-en el encabezado, el hero, la banda de conversión, cada tarjeta de servicio (con
-el nombre del servicio precargado), el formulario y el botón flotante.
+WhatsApp tiene su propio número, distinto del teléfono para llamadas. Se define
+una sola vez en `site.contact.whatsappE164`, y el teléfono en
+`site.contact.phoneE164`. La función `whatsappUrl(mensaje)` arma el enlace
+`wa.me` con el texto ya codificado. Se usa en el encabezado, el hero, la banda de
+conversión, cada tarjeta de servicio y de producto (con su nombre precargado), el
+formulario y el botón flotante.
 
 El formulario no envía a ningún servidor: redacta el mensaje y lo entrega por
 WhatsApp o por correo, según elija el visitante. Es lo que corresponde a un sitio

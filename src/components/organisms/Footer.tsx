@@ -46,7 +46,10 @@ export function Footer() {
             className="flex items-center gap-2 text-sm transition hover:text-ember-400"
           >
             <MessageCircle className="h-4 w-4 shrink-0" aria-hidden />
-            WhatsApp
+            <span>
+              <span className="sr-only">WhatsApp: </span>
+              {site.contact.whatsapp}
+            </span>
           </a>
           <a href={telUrl} className="flex items-center gap-2 text-sm transition hover:text-ember-400">
             <Phone className="h-4 w-4 shrink-0" aria-hidden />

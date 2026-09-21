@@ -5,5 +5,7 @@ export { Footer } from './Footer';
 export { Header } from './Header';
 export { Hero } from './Hero';
 export { Process } from './Process';
+export { Products } from './Products';
+export { Projects } from './Projects';
 export { Sectors } from './Sectors';
 export { Services } from './Services';

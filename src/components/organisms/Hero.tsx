@@ -3,6 +3,7 @@ import heroImage from '@/assets/hero-operaciones.jpg';
 import { Badge, Button, Container } from '@/components/atoms';
 import { StatItem } from '@/components/molecules';
 import { stats } from '@/data/company';
+import { services } from '@/data/services';
 import { whatsappMessages, whatsappUrl } from '@/data/site';
 
 /** Portada: fotografía de operaciones, propuesta de valor y accesos directos. */
@@ -47,7 +48,7 @@ export function Hero() {
               Cotizar por WhatsApp
             </Button>
             <Button href="#servicios" variant="ghost" size="lg">
-              Ver los 33 servicios
+              Ver los {services.length} servicios
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Button>
           </div>

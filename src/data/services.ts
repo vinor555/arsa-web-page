@@ -3,7 +3,6 @@ import {
   DraftingCompass,
   FileCheck2,
   Gauge,
-  Package,
   Truck,
   type LucideIcon,
 } from 'lucide-react';
@@ -13,8 +12,7 @@ export type ServiceCategoryId =
   | 'tanques'
   | 'ingenieria'
   | 'montaje'
-  | 'normativa'
-  | 'productos';
+  | 'normativa';
 
 export interface ServiceCategory {
   id: ServiceCategoryId;
@@ -74,13 +72,6 @@ export const serviceCategories: ServiceCategory[] = [
     description:
       'Gestión completa ante el Ministerio de Energía y Minas y formación del personal que opera hidrocarburos.',
     icon: FileCheck2,
-  },
-  {
-    id: 'productos',
-    label: 'Productos y suministros',
-    shortLabel: 'Productos',
-    description: 'Insumos especializados para la medición y control de combustibles.',
-    icon: Package,
   },
 ];
 
@@ -261,6 +252,13 @@ export const services: Service[] = [
       'Manufactura de serpentines de calentamiento y pruebas de presión antes de entrar en operación.',
   },
   {
+    id: 'instalacion-contador',
+    category: 'montaje',
+    title: 'Instalación de contador volumétrico',
+    description:
+      'Montaje y puesta en marcha del medidor (cuenta galones) en su línea de despacho o de consumo.',
+  },
+  {
     id: 'trasiego-bunker',
     category: 'montaje',
     title: 'Trasiego de búnker y derivados',
@@ -294,6 +292,13 @@ export const services: Service[] = [
       'Solicitud y renovación de licencias para consumos propios y estaciones de servicio.',
   },
   {
+    id: 'licencias-plantas-asfalto',
+    category: 'normativa',
+    title: 'Gestión de licencias para plantas de asfalto',
+    description:
+      'Gestión y seguimiento de las licencias que requieren las plantas de asfalto para operar.',
+  },
+  {
     id: 'capacitacion',
     category: 'normativa',
     title: 'Capacitación en seguridad industrial',
@@ -306,15 +311,6 @@ export const services: Service[] = [
     description:
       'Asesoría y ejecución para operaciones de depósito de GLP (propano, butano o mezcla).',
     standards: ['DGH-CIRC-009-2019'],
-  },
-
-  // --- Productos ------------------------------------------------------------
-  {
-    id: 'pastas-etanol',
-    category: 'productos',
-    title: 'Venta de pasta Kolor Kut Modified',
-    description:
-      'Kolor Kut Modified Water Finding Paste, para detección de agua en combustibles reformulados y oxigenados como el etanol.',
   },
 ];
 

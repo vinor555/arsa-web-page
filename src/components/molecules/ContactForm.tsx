@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { Mail, MessageCircle } from 'lucide-react';
 import { Button, TextAreaField, TextField } from '@/components/atoms';
+import { products } from '@/data/products';
 import { services } from '@/data/services';
 import { mailtoUrl, site, whatsappUrl } from '@/data/site';
 
@@ -28,7 +29,7 @@ function composeMessage({ nombre, empresa, contacto, servicio, mensaje }: FormSt
     `Nombre: ${nombre}`,
     empresa && `Empresa: ${empresa}`,
     `Contacto: ${contacto}`,
-    servicio && `Servicio de interés: ${servicio}`,
+    servicio && `Servicio o producto: ${servicio}`,
     mensaje && '',
     mensaje && `Detalle: ${mensaje}`,
   ]
@@ -91,7 +92,7 @@ export function ContactForm() {
 
       <div className="flex flex-col gap-1.5">
         <label htmlFor="servicio" className="text-sm font-medium text-petrol-900">
-          Servicio de interés
+          Servicio o producto de interés
         </label>
         <select
           id="servicio"
@@ -100,12 +101,21 @@ export function ContactForm() {
           onChange={(event) => update('servicio')(event.target.value)}
           className="w-full rounded-md border border-steel-200 bg-white px-3.5 py-2.5 text-sm text-petrol-950 transition focus:border-ember-500 focus:ring-2 focus:ring-ember-500/20 focus:outline-none"
         >
-          <option value="">Seleccione un servicio (opcional)</option>
-          {services.map((service) => (
-            <option key={service.id} value={service.title}>
-              {service.title}
-            </option>
-          ))}
+          <option value="">Seleccione una opción (opcional)</option>
+          <optgroup label="Servicios">
+            {services.map((service) => (
+              <option key={service.id} value={service.title}>
+                {service.title}
+              </option>
+            ))}
+          </optgroup>
+          <optgroup label="Productos">
+            {products.map((product) => (
+              <option key={product.id} value={product.title}>
+                {product.title}
+              </option>
+            ))}
+          </optgroup>
         </select>
       </div>
 
