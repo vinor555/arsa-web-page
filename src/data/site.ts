@@ -8,7 +8,7 @@ export const site = {
   url: 'https://arsagroup.com.gt/',
   country: 'Guatemala',
   contact: {
-    email: 'kathleen.ar97@outlook.es',
+    email: 'info@arsagroup.com.gt',
     phone: '+502 4265 0291',
     phoneE164: '50242650291',
     whatsapp: '+502 4540 6553',
